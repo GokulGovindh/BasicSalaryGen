@@ -1,0 +1,45 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<style>
+    /* Center the content horizontally and vertically */
+    .center-content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 50vh; /* Adjust this value to control the vertical alignment */
+    }
+
+    /* Add margin between buttons */
+    .btn-group {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+</style>
+
+<div class="center-content">
+    <div class="btn-group">
+        <h2>Welcome to the Home Page</h2>
+        <a asp-controller="Salary" asp-action="Pay" class="btn btn-primary">Pay Slip Detail</a>
+        <a asp-controller="Salary" asp-action="Employee" class="btn btn-primary">Employee Details</a>
+        <a asp-controller="Salary" asp-action="Record" class="btn btn-primary">Salary Record</a>
+        <a asp-controller="Salary" asp-action="ShowAllEmployee" class="btn btn-primary">Show All Employee Details</a>
+    </div>
+</div>
+
+
+
+
+
+@*@{
+    ViewData["Title"] = "Home Page";
+}
+
+<h2>Welcome to the Home Page</h2>
+
+<a asp-controller="Salary" asp-action="Pay" class="btn btn-primary">Pay Slip Detail</a>
+<a asp-controller="Salary" asp-action="Employee" class="btn btn-primary">Employee Details</a>
+<a asp-controller="Salary" asp-action="Record" class="btn btn-primary">Salary Record</a>
+*@

@@ -1,0 +1,41 @@
+﻿@using BasicSalary.Domain.ViewModel;
+@model List<EmployeeViewModel>
+
+@{
+    ViewData["Title"] = "Salary Details";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+@if (Model != null && Model.Count > 0)
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Employee ID</th>
+                <th>Month</th>
+                <th>Year</th>
+                <th>Basic Salary</th>
+                <th>Allowance</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var salary in Model)
+            {
+                <tr>
+                    <td>@salary.EmployeeId</td>
+                    <td>@salary.Month</td>
+                    <td>@salary.Year</td>
+                    <td>@salary.BasicSalary</td>
+                    <td>@salary.Allowance</td>
+
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No salary details found.</p>
+}

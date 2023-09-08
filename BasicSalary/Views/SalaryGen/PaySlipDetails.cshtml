@@ -1,0 +1,114 @@
+﻿@using BasicSalary.Domain.ViewModel;
+@model List<EmployeeViewModel>
+
+<style>
+    /* Define table and cell styles */
+    .table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+        .table th, .table td {
+            padding: 12px;
+            text-align: center;
+        }
+
+        .table th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+            border-bottom: 2px solid #ddd;
+        }
+
+        .table td {
+            border-bottom: 1px solid #ddd;
+        }
+
+            .table td.employee-id {
+                font-weight: bold;
+            }
+
+            .table td.employee-name {
+                font-weight: bold;
+            }
+</style>
+
+<h2>Payslip Details</h2>
+
+<div align="right">
+    <a asp-controller="SalaryGen" asp-action="Index" class="btn btn-primary">Home</a>
+</div>
+<br />
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Employee ID</th>
+            <th>Employee Name</th>
+            <th>Designation</th>
+            <th>Basic Salary</th>
+            <th>Allowance</th>
+            <th>PF</th>
+            <th>Total Salary</th>
+            <th>Working Days</th>
+            <th>Leave Days</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td class="employee-id">@item.EmployeeId</td>
+                <td class="employee-name">@item.EmployeeName</td>
+                <td>@item.Designation</td>
+                <td>@item.BasicSalary</td>
+                <td>@item.Allowance</td>
+                <td>@item.PF</td>
+                <td>@item.TotalSalary</td>
+                <td>@item.WorkingDays</td>
+                <td>@item.LeaveDays</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+
+
+
+@*@using BasicSalary.Domain.ViewModel;
+@model List<EmployeeViewModel>
+
+<h2>Payslip Details</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Employee ID</th>
+            <th>Employee Name</th>
+            <th>Designation</th>
+            <th>Basic Salary</th>
+            <th>Allowance</th>
+            <th>PF</th>
+            <th>Total Salary</th>
+            <th>Working Days</th>
+            <th>Leave Days</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.EmployeeId</td>
+                <td>@item.EmployeeName</td>
+                <td>@item.Designation</td>
+                <td>@item.BasicSalary</td>
+                <td>@item.Allowance</td>
+                <td>@item.PF</td>
+                <td>@item.TotalSalary</td>
+                <td>@item.WorkingDays</td>
+                <td>@item.LeaveDays</td>
+            </tr>
+        }
+    </tbody>
+</table>
+*@

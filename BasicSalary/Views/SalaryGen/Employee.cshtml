@@ -1,0 +1,82 @@
+﻿@using BasicSalary.Domain.ViewModel;
+@model EmployeeViewModel
+
+<style>
+    /* Center the content horizontally and vertically */
+    .center-content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 70vh;
+    }
+
+    /* Style the form container */
+    .form-container {
+        max-width: 400px;
+        padding: 20px;
+        border: 1px solid #ddd;
+        background-color: #f9f9f9;
+        border-radius: 5px;
+    }
+
+    /* Style form inputs */
+    .form-group label {
+        font-weight: bold;
+    }
+
+    .form-control {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+    }
+
+    /* Style the submit button */
+    .btn-primary {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        background-color: #007bff;
+        border: none;
+        color: white;
+        border-radius: 3px;
+        cursor: pointer;
+    }
+
+        /* Hover effect for the submit button */
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+</style>
+
+<div class="center-content">
+    <div class="form-container">
+        <h2>Search Employee Details</h2>
+        <form asp-action="Employee" method="post">
+            <div class="form-group">
+                <label for="employeeId">Employee ID:</label>
+                <input type="text" class="form-control" name="employeeId" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Search</button>
+        </form>
+    </div>
+</div>
+
+
+
+
+
+@*@using BasicSalary.Domain.ViewModel;
+@model EmployeeViewModel
+
+<h2>Search Employee Details</h2>
+
+<form asp-action="Employee" method="post">
+    <div class="form-group">
+        <label for="employeeId">Employee ID:</label>
+        <input type="text" class="form-control" name="employeeId" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Search</button>
+</form>
+*@

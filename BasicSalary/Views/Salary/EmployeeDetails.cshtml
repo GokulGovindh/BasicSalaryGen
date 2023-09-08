@@ -1,0 +1,107 @@
+﻿@using BasicSalary.Domain.ViewModel;
+@model List<EmployeeViewModel>
+
+<style>
+    /* Define table and cell styles */
+    .table {
+        width: 100%;
+        border-collapse: collapse;
+        border-spacing: 0;
+    }
+
+        .table th, .table td {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .table th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+            text-align: left;
+        }
+
+        .table td {
+            vertical-align: top;
+        }
+
+            .table td.employee-id {
+                font-weight: bold;
+            }
+
+            .table td.employee-name {
+                font-weight: bold;
+            }
+</style>
+
+<h2>Payslip Details</h2>
+<div align="right">
+    <a asp-controller="Salary" asp-action="Index" class="btn btn-primary">Home</a>
+</div>
+<br />
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Employee ID</th>
+            <th>Employee Name</th>
+            <th>Designation</th>
+            <th>Branch</th>
+            <th>Mobile Number</th>
+            <th>Address</th>
+            <th>Basic Salary</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td class="employee-id">@item.EmployeeId</td>
+                <td class="employee-name">@item.EmployeeName</td>
+                <td>@item.Designation</td>
+                <td>@item.Branch</td>
+                <td>@item.MobileNumber</td>
+                <td>@item.Address</td>
+                <td>@item.BasicSalary</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+
+
+
+
+@*@using BasicSalary.Domain.ViewModel;
+@model List<EmployeeViewModel>
+
+<h2>Payslip Details</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Employee ID</th>
+            <th>Employee Name</th>
+            <th>Designation</th>
+            <th>Branch</th>
+            <th>Mobile Number</th>
+            <th>Address</th>
+            <th>Basic Salary</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.EmployeeId</td>
+                <td>@item.EmployeeName</td>
+                <td>@item.Designation</td>
+                <td>@item.Branch</td>
+                <td>@item.MobileNumber</td>
+                <td>@item.Address</td>
+                <td>@item.BasicSalary</td>
+            </tr>
+        }
+    </tbody>
+</table>
+*@

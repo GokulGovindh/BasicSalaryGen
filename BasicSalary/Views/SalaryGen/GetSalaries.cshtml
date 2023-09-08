@@ -1,0 +1,79 @@
+﻿@using BasicSalary.Data.Model;
+@model List<SalaryGenerator>
+
+@{
+    ViewData["Title"] = "Employee Salaries";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+@if (Model != null && Model.Count > 0)
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Employee ID</th>
+                <th>Month</th>
+                <th>Year</th>
+                <th>Allowance</th>
+                <th>Working Days</th>
+                <th>Leave Days</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var salary in Model)
+            {
+                <tr>
+                    <td>@salary.EmployeeId</td>
+                    <td>@salary.Month</td>
+                    <td>@salary.Year</td>
+                    <td>@salary.Allowance</td>
+                    <td>@salary.WorkingDays</td>
+                    <td>@salary.LeaveDays</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No salary details found.</p>
+}
+
+
+@*@{
+    ViewData["Title"] = "Employee Salaries";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+@if (Model != null && Model.Count > 0)
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Employee ID</th>
+                <th>Month</th>
+                <th>Year</th>
+                <th>Allowance</th>
+                <!-- Add more columns as needed -->
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var salary in Model)
+            {
+                <tr>
+                    <td>@salary.EmployeeId</td>
+                    <td>@salary.Month</td>
+                    <td>@salary.Year</td>
+                    <td>@salary.Allowance</td>
+                    <!-- Add more columns as needed -->
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No salary details found.</p>
+}*@

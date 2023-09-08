@@ -1,0 +1,149 @@
+﻿@using BasicSalary.Domain.ViewModel;
+@model List<GroupedEmployeeViewModel>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Filtered Total Basic Salary</title>
+    <style>
+        /* Add your custom CSS styles here */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            padding: 20px;
+        }
+
+        form {
+            text-align: center;
+            padding: 10px;
+            background-color: #ffffff;
+            border: 1px solid #dddddd;
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 80%;
+            margin: auto;
+            border-collapse: collapse;
+            background-color: #ffffff;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        th, td {
+            text-align: left;
+            padding: 10px;
+        }
+
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        tr:hover {
+            background-color: #e0e0e0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Filtered Total Basic Salary</h1>
+    <div align="right">
+        <a asp-controller="SalaryGen" asp-action="Index" class="btn btn-primary">Home</a>
+    </div>
+    <br />
+
+    <form method="get" action="@Url.Action("GroupEmployeesByDesignationWithFilter", "SalaryGen")">
+        <label for="minTotalBasicSalary">Minimum Total Basic Salary:</label>
+        <input type="number" name="minTotalBasicSalary" id="minTotalBasicSalary" value="0" />
+        <button type="submit">Filter</button>
+    </form>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Designation</th>
+                <th>Total Basic Salary</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var group in Model)
+            {
+                @if (group.TotalBasicSalary >= ViewBag.MinTotalBasicSalary)
+                {
+                    <tr>
+                        <td>@group.Designation</td>
+                        <td>₹@group.TotalBasicSalary</td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+
+</body>
+</html>
+
+
+
+@*@using BasicSalary.Domain.ViewModel;
+@model List<GroupedEmployeeViewModel>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Grouped Employees with Filter</title>
+    <!-- Add your CSS or style references here -->
+</head>
+<body>
+    <h1>Grouped Employees with Filter</h1>
+
+    <form method="get" action="@Url.Action("GroupEmployeesByDesignationWithFilter", "SalaryGen")">
+        <label for="minTotalBasicSalary">Minimum Total Basic Salary:</label>
+        <input type="number" name="minTotalBasicSalary" id="minTotalBasicSalary" value="0" />
+        <button type="submit">Filter</button>
+    </form>
+
+    @foreach (var group in Model)
+    {
+        @if (group.TotalBasicSalary >= ViewBag.MinTotalBasicSalary)
+        {
+            <h2>@group.Designation</h2>
+            <p>Total Basic Salary: ₹@group.TotalBasicSalary</p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Employee ID</th>
+                        <th>Employee Name</th>
+                        <th>Branch</th>
+                        <th>Mobile Number</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var employee in group.Employees)
+                    {
+                        <tr>
+                            <td>@employee.EmployeeId</td>
+                            <td>@employee.EmployeeName</td>
+                            <td>@employee.Branch</td>
+                            <td>@employee.MobileNumber</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+            <br />
+        }
+    }
+
+</body>
+</html>
+*@

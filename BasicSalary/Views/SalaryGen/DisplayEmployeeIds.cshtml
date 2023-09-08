@@ -1,0 +1,19 @@
+﻿@{
+    ViewData["Title"] = "Display Employee IDs";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<form asp-controller="Salary" asp-action="DisplaySalaryDetails" method="post">
+    <div class="form-group">
+        <label for="employeeId">Select Employee ID:</label>
+        <select class="form-control" id="employeeId" name="employeeId">
+            <option value="">Select an employee</option>
+            @foreach (var id in ViewBag.EmployeeIds)
+            {
+                <option value="@id">@id</option>
+            }
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
